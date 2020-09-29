@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>회원 정보</h1>
-	<form method=post action="output2.jsp">
+	<form method=get action="output2.jsp">
 		이름 :<input type=text name=name size=15><br>
 		성벌 :<input type=radio name=sex value="남자" checked>남자
 			<input type=radio name=sex value="여자">여자<br>

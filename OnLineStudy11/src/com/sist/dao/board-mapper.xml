@@ -45,4 +45,51 @@
   <select id="freeboardTotalPage" resultType="int" >
   	SELECT CEIL(COUNT(*)/10.0) FROM movie_board1
   </select>
+  
+  <insert id="freeBoardInsert" parameterType="BoardVO">
+    INSERT INTO movie_board1 VALUES(
+      mb_no_seq1.nextval,
+      #{name},
+      #{subject},
+      #{content},
+      #{pwd},
+      SYSDATE,0
+    )
+  </insert>
+  <!-- 상세보기 -->
+  <!-- 조회수 증가 -->
+  <update id="freeboardHitIncrement" parameterType="int">
+	<!-- parameterType="int" : 게시물의 번호를 대입 -->
+	UPDATE movie_board1 SET
+	hit=hit+1
+	WHERE no=#{no}
+	
+  </update>
+  <!-- 
+  	JSP => <a> button ==> 요청
+  	board-mapper.xml 파일 sql문장
+  	BoardDAO => SQL문장을 읽어서 처리
+  
+   -->
+  <!-- 실제 데이터 읽기(내용 보기) -->
+  <select id="freeboardDetailData" resultType="BoardVO" parameterType="int" >
+  	SELECT no,name,subject,content,TO_CHAR(regdate,'YYYY-MM-DD') as regdate,hit
+  	FROM movie_board1
+  	WHERE no=#{no}
+  </select>
+    
+  <!-- 수정 -->
+  <select id="freeboardGetPassword" resultType="String" parameterType="int" >
+  	SELECT pwd FROM movie_board1
+  	WHERE no=#{no}
+  </select>
+
+
+  <update id="freeboardUpdate" parameterType="BoardVO" >
+  	UPDATE movie_board1 SET
+  	name=#{name},
+  	subject=#{subject},
+  	content=#{content}
+  	WHERE no=#{no}
+  </update>
 </mapper>

@@ -58,13 +58,25 @@
     	 jsp="../board/update.jsp";
     	 break;
      case 7:
-    	 jsp="../movie/home.jsp";
-    	 break;
+     	 jsp="../movie/home.jsp";
+     	 break;
      case 8:
-    	 jsp="../movie/detail.jsp";
-    	 break;
+     	 jsp="../movie/detail.jsp";
+     	 break;
      case 9:
-    	 jsp="../freeboard/board.jsp";
+     	 jsp="../freeboard/list.jsp";
+     	 break;
+     case 10:
+     	 jsp="../freeboard/insert.jsp";
+     	 break;
+     case 11:
+     	 jsp="../freeboard/detail.jsp";
+     	 break;
+     case 12:
+     	 jsp="../freeboard/update.jsp";
+     	 break;
+     case 13:
+    	 jsp="../freeboard/delete.jsp";
     	 break;
      }
           // 새로운 화면을 만들때 반드시 등록
@@ -90,10 +102,9 @@
     </div>
     <div class="col-sm-9">
       <!-- 레시피 : 메뉴를 클릭시마다 변경 : 변수를 잡아서 => jsp파일명을 변경 -->
-      <jsp:include page="<%=jsp %>"></jsp:include>
+      <jsp:include page="<%=jsp%>"></jsp:include>
     </div>
   </div>
 </div>
-
 </body>
 </html>

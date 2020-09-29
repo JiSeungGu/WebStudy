@@ -51,7 +51,7 @@ function send()
 		return;
 	}
 	f.submit(); // submit버튼과 동일한 역할 => Jquert => NodeJs => Reactjs => vuejs => typescript 순서
-}
+}	
 </script>
 </head>
 <body>

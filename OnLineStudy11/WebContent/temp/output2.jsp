@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist.temp.*"%>
 
 <%
 	// 한글 변환
 	request.setCharacterEncoding("UTF-8");
-
 
 %>
 <%--
