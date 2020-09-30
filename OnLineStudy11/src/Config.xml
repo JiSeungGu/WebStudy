@@ -12,6 +12,7 @@
     <typeAlias type="com.sist.dao.DataBoardVO" alias="DataBoardVO"/>
     <typeAlias type="com.sist.dao.MovieVO" alias="MovieVO"/>
     <typeAlias type="com.sist.dao.BoardVO" alias="BoardVO"/>
+    <typeAlias type="com.sist.dao.MemberVO" alias="MemberVO"/>
     <!-- 
                       오라클에서 가지고 오는 데이터를 받아서 저장 
             while(rs.next())
@@ -93,7 +94,7 @@
     <mapper resource="com/sist/dao/databoard-mapper.xml"/><!-- 분산 여러개를 등록이 가능 -->
     <mapper resource="com/sist/dao/movie-mapper.xml"/><!-- 분산 여러개를 등록이 가능 -->
     <mapper resource="com/sist/dao/board-mapper.xml"/><!-- 분산 여러개를 등록이 가능 -->
-    
+    <mapper resource="com/sist/dao/member-mapper.xml"/>
     <!-- MovieVO , MovieDAO  -->
   </mappers>
 </configuration>
