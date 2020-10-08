@@ -8,11 +8,12 @@
   <!-- MyBatis,Spring : 기본 디폴트 폴더가 src -->
   <properties resource="db.properties"/>
   <typeAliases>
-    <!-- VO를 등록 -->
-    <typeAlias type="com.sist.dao.DataBoardVO" alias="DataBoardVO"/>
-    <typeAlias type="com.sist.dao.MovieVO" alias="MovieVO"/>
-    <typeAlias type="com.sist.dao.BoardVO" alias="BoardVO"/>
-    <typeAlias type="com.sist.dao.MemberVO" alias="MemberVO"/>
+    <!-- VO를 등록 
+
+    -->
+    <typeAlias type="com.sist.dao.RecipeVO" alias="RecipeVO"/>
+    <typeAlias type="com.sist.dao.ChefVO" alias="ChefVO"/>
+    
     <!-- 
                       오라클에서 가지고 오는 데이터를 받아서 저장 
             while(rs.next())
@@ -91,6 +92,7 @@
   <!-- XML은 문서 저장 : 저장내용이 많아지면 파싱(XML저장되어 있는 데이터를 읽어 간다) 속도가 저하된다:분산  -->
   <!-- XML만 가지고 코딩하는 프레임워크 : XML이 길어진다=>속도의 문제 (스트럿츠) : 스프링 -->
   <mappers>
+    <mapper resource="com/sist/dao/recipe-mapper.xml"/><!-- 분산 여러개를 등록이 가능 -->
 
     <!-- MovieVO , MovieDAO  -->
   </mappers>

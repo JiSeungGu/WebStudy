@@ -54,8 +54,7 @@
        <td colspan="2" class="text-center">
          <input type=submit value=글쓰기 class="btn btn-sm btn-primary">
          <input type=button value=취소 class="btn btn-sm btn-primary"
-           onclick="javascript:history.back()"
-         >
+           onclick="javascript:history.back()">
        </td>
      </tr>
    </table>
