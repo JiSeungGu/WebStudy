@@ -8,7 +8,7 @@ public class DetailModel implements Model {
 	public String execute(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		request.setAttribute("msg", "내용보기");
+		request.setAttribute("ID", "ID");
 		return "board/detail.jsp";
 	}
-
 }
