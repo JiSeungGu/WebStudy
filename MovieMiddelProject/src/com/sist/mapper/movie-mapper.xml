@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sist.mappper.movie-mapper">
-			
-</mapper>
+<mapper namespace="com.sist.mappper.movie-mapper"> 
+	<select id="movieListData" resultType="MovieVO" parameterType="hashmap"> 
+			SELECT no,poster,title,num 
+			FROM (SELECT no,poster,title,rownum as num 
+			FROM (SELECT no,poster,title 
+			FROM daum_movie WHERE cateno=#{cateno} ORDER BY score DESC)) 
+			WHERE num BETWEEN #{start} AND #{end} 
+	</select> 
+	<select id="movieTotalPage" resultType="int" parameterType="int">
+	SELECT CEIL(COUNT(*)/12.0) FROM daum_movie
+	WHERE cateno = #{cateno}
+	</select>
+	<!-- 영화 뉴스 -->
+	<select id="movieNewsData" resultType="NewsVO" parameterType="hashmap">
+		<!-- Class.forname("com.sist.vo.NewsVO") 
+			private String title;
+			private String poster;
+			private String link;
+			private String content;
+			private String author;
+		-->
+		SELECT title,poster,link,content,author,num
+		FROM (SELECT title,poster,link,content,author,rownum as num
+		FROM (SELECT title,poster,link,content,author 
+		FROM daum_News))
+		WHERE num BETWEEN #{start} and #{end} 
+	</select>
+	
+	<!-- 영화 뉴스 총 페이지 -->
+	<select id="newsTotalPage" resultType="int" >
+	SELECT CEIL(COUNT(*)/20.0) FROM daum_News
+	</select>
+</mapper> 
+ 

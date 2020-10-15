@@ -187,16 +187,16 @@
       width: 100%;
       margin-bottom: 35px;
     }
-  }
+  } 
   @media screen and (max-width: 480px) {
     .logo {
       font-size: 150px;
     }
-  }
+  }	
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
+	  
 <!-- 헤더가 들어가는 위치  -->
 <jsp:include page="../main/header.jsp"></jsp:include>
 <!-- Container (About Section) -->
@@ -235,7 +235,7 @@ $(document).ready(function(){
       });
     } // End if
   });
-  
+
   $(window).scroll(function() {
     $(".slideanim").each(function(){
       var pos = $(this).offset().top;
