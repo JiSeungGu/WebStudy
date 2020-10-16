@@ -20,25 +20,36 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../main/main.do">Home</a></li>
+        <li><a href="#">로그인</a></li>
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">회원관리
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">회원가입</a></li>
+          <li><a href="../member/join.do">회원가입</a></li>
+          <%--
+          		회원 가입 폼
+          		1.아이디 중복 체크
+          		2.우편번호 검색
+          		3.
+           --%>
           <li><a href="#">아이디 찾기</a></li>
           <li><a href="#">비밀번호 찾기</a></li>
         </ul>
-      </li>
+      </li>  
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">영화
         <span class="caret"></span></a>
         <ul class="dropdown-menu" >
+          <li><a href="../movie/total.do">전체 영화</a></li>
           <li><a href="../movie/real.do?cateno=1">현재 상영 영화</a></li>
+          <%-- 상세보기  : 찜하기, Cookie, 댓글--%>
           <li><a href="../movie/sch.do?cateno=2">개봉 예정</a></li>
           <li><a href="../movie/box.do?cateno=3">박스 오 피 스</a></li>
         </ul>
-      </li>
-      
+      </li>	 
+      	<%-- Ajax를 통해 예매 
+      		 달력,
+      	--%>
         <li><a href="../reserve/reserve.do">영화예매</a></li>
         
         
@@ -48,6 +59,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
+        <%-- 블록별 처리 --%>
           <li><a href="#">공지 사항</a></li>
           <li><a href="#">자유 게시판</a></li>
           <li><a href="#">묻고 답하기</a></li>

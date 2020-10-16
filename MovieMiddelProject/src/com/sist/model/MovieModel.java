@@ -130,7 +130,7 @@ public class MovieModel {
 		
 		request.setAttribute("main_jsp", "../movie/box.jsp");
 		return "../main/main.jsp";
-	}
+	}	
 	 @RequestMapping("movie/news.do")
 	 public String movie_news(HttpServletRequest request)
 	 {
@@ -158,6 +158,63 @@ public class MovieModel {
 		 request.setAttribute("nList", nList);
 		 //include => news.jsp
 		 request.setAttribute("main_jsp", "../movie/news.jsp");
+		 return "../main/main.jsp";
+	 }
+	 
+	 @RequestMapping("movie/total.do")
+	 public String movie_total(HttpServletRequest request)
+	 {
+	 	 // 데이터 읽어서 => jsp로 전송하는
+		 // 페이지
+		 String page = request.getParameter("page");
+		 if(page==null)
+			 page="1";
+		 
+		 
+		 int curpage=Integer.parseInt(page);
+		 Map map = new HashMap();
+		 int rowSize=12;
+		 int start = (curpage*rowSize)-(rowSize-1);
+		 int end = curpage*rowSize;
+			
+		 map.put("start",start);
+		 map.put("end",end);
+		 
+		 List<MovieVO> list = MovieDAO.movieTotalData(map);
+		 int totalpage=MovieDAO.movieTotalPage2();
+		 
+		 int BLOCK=5;
+		 int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+		 int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+		 
+		 if(endPage>totalpage)
+		 {
+			 endPage = totalpage;
+		 }
+		 
+		 request.setAttribute("list",list);
+		 request.setAttribute("curpage", curpage);
+		 request.setAttribute("totalpage", totalpage);
+		 request.setAttribute("BLOCK", BLOCK);
+		 request.setAttribute("startPage", startPage);
+		 request.setAttribute("endPage",endPage);
+		 request.setAttribute("main_jsp","../movie/total.jsp");
+	 	 return "../main/main.jsp";
+	 }
+	 @RequestMapping("movie/detail.do")
+	 public String movie_detail(HttpServletRequest request)
+	 {
+		 //사용자가 보내준 데이터 읽기
+		 String no=request.getParameter("no");
+		 String page=request.getParameter("page");
+		 String cateno=request.getParameter("cno");
+		 if(page==null)
+			 page="1";
+		 			  
+		 //상세보기 데이터 읽기
+		 // DataBase 연결
+		 request.setAttribute("","");
+		 request.setAttribute("main_jsp", "../movie/detail.jsp");
 		 return "../main/main.jsp";
 	 }
 }

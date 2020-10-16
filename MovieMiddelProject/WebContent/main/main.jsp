@@ -201,7 +201,7 @@
 <jsp:include page="../main/header.jsp"></jsp:include>
 <!-- Container (About Section) -->
 
-<div class="container">
+<div class="container-fluid"> <%-- fluid 는 full 화면을 의미한다. --%>
 	<!-- 화면 변경이 되는 부분 -->
 	<jsp:include page="${main_jsp }"></jsp:include>
 </div>

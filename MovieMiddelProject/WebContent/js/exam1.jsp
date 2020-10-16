@@ -50,6 +50,13 @@
 	 console.log(b);
  }
  */
+ 
+ 
+ window.onload=()=>{
+	 
+	 
+ }
+
 </script>
 </head>
 <body>
